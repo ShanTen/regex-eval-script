@@ -1,0 +1,30 @@
+#to be finalized ; answer  must be checked for actual matched ID values, just 10  correct answers is not enough
+<!doctype html id>
+"we" dont "need" ="this"
+<html langid="en-US">
+  <head "banger">
+    <meta charset="UTF-8" id=/>
+    <title>Document</title> <find idli"mix">
+  </head>
+  <body>
+    <div id= "parent-id">
+      <p>hello word1</p>
+      <p id ="test1">hello word2</p>
+      <p>hello <span class="mama" ID='j02' > awesome </span> word3</p>
+      <p>hello <span class="mama" ID='j1x' > splendig </span> word4</p>
+	  <p>hello <span class="mama" ID= 'j2x' > wonderful </span> word4</p>
+	  <p>hello <span class="mama" ID = 'j3x' > superb </span> word4</p>
+	  <p>hello <span class="mama" Id ='j4x' > jigglybop </span> word4</p>
+	  <p>hello <span class="mama" iD ='j5x' > tiptop </span> word4</p>
+	  <p>hello <span class="mama" iD ='j6x'> tiptop </span> word4</p>
+	  <p>hello <span class="mama" iD ="j7x"> tiptop </span> word4</p>
+	  <p>hello <span classiD="jxx"> mishmash </span> word4</p>
+    </div>
+    <script>
+      const parentDOM = document.getElementById("parent-id");
+      const test1 = parentDOM.getElementById("test1");
+      // throw error
+      // Uncaught TypeError: parentDOM.getElementById is not a function
+    </script>
+  </body>
+</html>

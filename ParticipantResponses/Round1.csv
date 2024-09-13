@@ -1,0 +1,3 @@
+Timestamp,Team Name,College Name,Participant 1 name,Participant 2 name,Qn A: Enter your Regex,Qn B: Enter your RegEx
+9/12/2024 23:40:52,S and V,Sri Sairam Institute of Technology,"bnm,.",tyuio,[a-z0-9]$--$,[a-z]0+*uu@$
+9/12/2024 23:45:33,KS,Jeppiaar Institute of Technology,fghjk,ghjk,"[A-Z]-*"u'u*$""",A[0-9]{4}[A-Z]{2}|A[0-9]{4}-[A-Z]{2}|B[0-9]{3}[a-z]{3}|B[0-9]{3}_[a-z]{3}'"

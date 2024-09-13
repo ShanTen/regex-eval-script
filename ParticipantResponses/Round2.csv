@@ -1,0 +1,7 @@
+Timestamp,Team Name,College Name,Participant 1 name,Participant 2 name,Qn A: Enter your Regex,Qn B: Enter your RegEx
+9/13/2024 21:46:42,Raven,Easwari Engineering college,cvbnm,rtyuiohj,(orange|purple|monkey)-(money|bike|bin|elephant),"""^(A(?:(?:\d{4}[A-Z]{2})|(?:\d{4}-[A-Z]{2}))|B(?:(?:\d{3}[a-z]{3})|(?:\d{3}_[a-z]{3})))$"""
+9/13/2024 21:48:07,Wait I am Goated,Sri Sairam Institute of Technology,cvgr,fsljfdslk,"""(orange|monkey|purple)-(bike|elephant|bin)""",^(A(?:(?:\d{4}[A-Z]{2})|(?:\d{4}-[A-Z]{2}))|B(?:(?:\d{3}[a-z]{3})|(?:\d{3}_[a-z]{3})))$
+9/13/2024 21:52:00,Team Skull,Vivekananda College of technology for women,jfdisof,",xmnvi",(orange-bin|purple-monkey|strong-elephant),A[0-9]{4}[A-Z]{2}|A[0-9]{4}-[A-Z]{2}|B[0-9]{3}[a-z]{3}|B[0-9]{3}_[a-z]{3}
+9/13/2024 22:31:06,PY team,Sri Sairam Institute of Technology,fsaufmx,cjkslacjks,"""orange|monkey|purple|strong|bin|bike|elephant-orange|monkey|purple|strong|bin|bike|elephant""",^A(\d{4}[a-z]{3}|\d{4}[A-Z]{2})|^B(\d{4}[a-z]{3}|\d{4}[A-Z]{2})
+9/13/2024 22:35:33,Losh,Saveetha University,hello dhi,njiwwl,"(orange,purple,strong)-(money,bike,bin,elephant)",^A\d{4}\w{3}|^B\d{4}\w{3}
+9/13/2024 22:36:41,Rockers,SRM Ramapuram,james,tamed,(monkey|bin|bike|elephant),"""A1234-AB"""

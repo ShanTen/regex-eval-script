@@ -1,0 +1,20 @@
+A1234AB (Standard Electronics) OK
+A1234-AB (Premium Electronics) OK
+B567abc (Standard Household items) OK
+B567_abc (Premium Household items) OK
+A567abc (incorrect format for Electronics) 
+A1234_AB (incorrect separator for Premium Electronics)
+B1234AB C987zyx (category code not defined)
+C1234AB A1234-abc B567-abc invalid code hypen is not used in category b
+B567_ZXY upper case after underscore not OK
+B567_121 numbers after underscore not ok
+AABD-AB ZXCVY BACD_abc invalid AA234AB second digit cant be alpha for category A
+linked in sayse someone@saw.your resume and you believed it
+necessary is the parent of invention - Libber
+heartwarming is raising environmentally dangerous says GRET-TH unberg
+A2323AB (Standard Electronics) OK
+A3224-AB (Premium Electronics) OK
+B967nnn (Standard Household items) OK
+B597_mmm (Premium Household items) OK
+A9999-ZZ (Premium Electronics) OK
+B000aaa (Standard Household items) OK
