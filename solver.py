@@ -4,7 +4,7 @@ import time
 import json
 from halo import Halo
 import regex as re
-
+from tabulate import tabulate
 
 testConfig = {
     "SR-1A" : {
@@ -43,20 +43,70 @@ testConfig = {
 def solve(roundNr : int, testConfig):
     time.sleep(1)
 
+    toPrint = []
+
+    pathToResponses = "./ParticipantResponses"
+
     caseNameA, caseNameB = getCaseNames(roundNr)
     testFileA, testFileB = getTestFileNames(roundNr)
 
+    participantAnswersForRound = resultCSVToObject(f"{pathToResponses}/Round{roundNr}.csv")
+    formattedParticipantAnswers = formatParticipantAnswers(participantAnswersForRound, roundNr)
+
+    # print(formattedParticipantAnswers)
+    
     print(f"Evaluating Test - {caseNameA}")
     perfectSolutionA = getPerfectSolution(testConfig, caseNameA, testFileA) #returns array
-    print(perfectSolutionA)
+    for participant in formattedParticipantAnswers:
+        participantSolution = getParticipantSolution(participant,caseNameA, testFileA)
+        print(f"Score of team {participant['TeamName']} is {compareAndGetScore(participantSolution,perfectSolutionA)}")
+        participant['TotalScore'] += compareAndGetScore(participantSolution,perfectSolutionA)
 
     print("-"*40)
 
     print(f"Evaluating Test - {caseNameB}")
     perfectSolutionB = getPerfectSolution(testConfig, caseNameB, testFileB)
-    print(perfectSolutionB)
+    # print(perfectSolutionB)
+    for participant in formattedParticipantAnswers:
+        # print(participant)
+        participantSolution = getParticipantSolution(participant,caseNameB,testFileB)
+        print(f"Score of team {participant['TeamName']} is {compareAndGetScore(participantSolution,perfectSolutionB)}")
+        participant['TotalScore'] += compareAndGetScore(participantSolution,perfectSolutionB)
+
+
+    for participant in formattedParticipantAnswers:
+        _ = removeKeysFromObject(participant, [caseNameA, caseNameB])
+        toPrint.append(_)
+    
+    pprintTable(toPrint)
+    
     
     return
+
+def formatParticipantAnswers(solutionList, roundNr):
+    #array of objects where each object is has the following keys:
+    # [
+    #   'Timestamp', 
+    #   'Team Name', 
+    #   'College Name', 
+    #   'Participant 1 name', 
+    #   'Participant 2 name', 
+    #   'Qn A: Enter your Regex', 
+    #   'Qn B: Enter your RegEx'
+    #]
+
+    newList = []
+    for idx, oldObj in enumerate(solutionList):
+        newObj = dict()
+        caseA, caseB = getCaseNames(roundNr)
+        newObj['TeamName'] = oldObj['Team Name']
+        newObj['CollegeName'] = oldObj['College Name']
+        newObj[caseA] = rf"{oldObj['Qn A: Enter your Regex']}"
+        newObj[caseB] = rf"{oldObj['Qn B: Enter your RegEx']}"
+        newObj['TimeStampIndex'] = idx #since the solutionList is already sorted by timestamp
+        newObj['TotalScore'] = 0
+        newList.append(newObj)
+    return newList
 
 def getPerfectSolution(testConfig, caseName : str, testFile : str):
     settings = testConfig
@@ -70,6 +120,37 @@ def getPerfectSolution(testConfig, caseName : str, testFile : str):
             finalSolution.append(_)
 
     return finalSolution
+
+def removeKeysFromObject(object, keys):
+    objKeys = object.keys()
+    newKeys = []
+    newObj = {}
+    for k in list(objKeys):
+        if k not in keys:
+            newKeys.append(k)
+
+    for k in newKeys:
+        newObj[k] = object[k]
+
+    return newObj
+
+# question code is like SR-1A, SR-2A, SR-3A, 
+def getParticipantSolution(participantObject, questionCode : str ,testFile : str):
+    pattern = participantObject[questionCode]
+    finalSolution = []
+    try:
+        for line in open(testFile):
+            if re.search(pattern, line):
+                _ = (re.search(pattern, line).group())            
+                finalSolution.append(_)
+        
+        return finalSolution
+    except:
+        return []
+
+def makeParticipantObject(entry):
+    #participantObject
+    pass
 
 def exportToCSV(data):
     pass
@@ -94,26 +175,38 @@ def resultCSVToObject(fname):
 
     for ans in answers:
         dataPoint = (dict(zip(header, ans))) #object maker 
-        print(dataPoint)
         answersList.append(dataPoint)
 
     return answersList
 
-def main():
-    pathToDataSets = "./Datasets"
-    pathToResponses = "./ParticipantResponses"
-    global testConfig
-    
+def pprintTable(answerList):
+    _headers = answerList[0].keys()
+    table = [_.values() for _ in answerList[1:]]
+    print(tabulate(table, headers=_headers, tablefmt="fancy_grid"))
 
-    roundToEvaluate = 1
+def compareAndGetScore(participantSolution, finalSolution):
+    score = 0
+    plusScore = 1
+    minusScore = 0.2
+    if len(participantSolution) == 0:
+        return 0
+    for string in participantSolution:
+        if string in finalSolution:
+            score += plusScore
+        elif string not in finalSolution:
+            score -= minusScore
+    return score
+
+def main():
+    global testConfig
+    pathToResponses = "./ParticipantResponses"
+    
     _ = int(input("Endha round vro: "))
     roundToEvaluate = _
+
+    # answerList = resultCSVToObject(f"{pathToResponses}/Round2.csv")
     
     solve(roundToEvaluate, testConfig)
-
-    # resultCSVToObject(f"{pathToResponses}/Round2.csv")
-
-
 
 if __name__ == '__main__':
     main()

@@ -1,3 +1,4 @@
 huepy
 halo
 regex
+tabulate
