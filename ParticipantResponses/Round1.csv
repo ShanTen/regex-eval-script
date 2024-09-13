@@ -1,3 +1,6 @@
 Timestamp,Team Name,College Name,Participant 1 name,Participant 2 name,Qn A: Enter your Regex,Qn B: Enter your RegEx
 9/12/2024 23:40:52,S and V,Sri Sairam Institute of Technology,"bnm,.",tyuio,[a-z0-9]$--$,[a-z]0+*uu@$
-9/12/2024 23:45:33,KS,Jeppiaar Institute of Technology,fghjk,ghjk,"[A-Z]-*"u'u*$""",A[0-9]{4}[A-Z]{2}|A[0-9]{4}-[A-Z]{2}|B[0-9]{3}[a-z]{3}|B[0-9]{3}_[a-z]{3}'"
+9/13/2024 19:10:06,Skibidi sigma,Jeppiaar Institute of Technology,to ski,ski jet,[A-Z]{3}-[0-9]{4},[a-z0-9_.-]+@[][a-z0-9_.-]+
+9/14/2024 0:26:19,Nexus,SRM Ramapuram,",cnzki","nsc,nxi","""[A-Z]{3}-[0-9]{4}""",[\w\._-]+@\w.\w{3}
+9/14/2024 0:27:51,pwn3d,Sri Sairam Institute of Technology,cxmpo,cos;qp,"""[A-Z]{3}-\d{4}""",jane@com.in
+9/14/2024 0:29:47,Data Duo,Jeppiaar Institute of Technology,jumba,oumba,"""^\w{3}-\d{4}$""","""[\w\d\._-]@\w\.\w{2,3}"""

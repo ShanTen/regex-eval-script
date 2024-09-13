@@ -1,0 +1,6 @@
+Timestamp,Team Name,College Name,Participant 1 name,Participant 2 name,Qn A: Enter your Regex,Qn B: Enter your RegEx
+9/14/2024 0:33:20,KS,Vivekananda College of technology for women,jumba,teepso,"""set CUTIL_[A-Z]=""","""[jxx|mam]"""
+9/14/2024 0:35:33,Rockers,Sri Sairam Institute of Technology,cxznkow,c skow,"""(?<=^set CUTIL_)[A-Z]+(?==)""","""\'\"""""
+9/14/2024 0:38:40,Hi,Jeppiaar Institute of Technology,kfdsloe,kds9w,(?<=set CUTIL_)\w(?==),"""\bid\W*=\W*['\""]\w['\""]"""
+9/14/2024 0:39:42,Ctrl Alt Del,Easwari Engineering college,zaow1,jeuo,"""set CUTIL_\w=""",""" ' ' """
+9/14/2024 0:42:36,Mantin,Easwari Engineering college,alseo,xmow,"""INKSCAPE|AUDACITY""","(?<=\b[iI][dD]\W*=\W*[""\'])[a-zA-Z0-9_-]+(?=[""\'])'"
